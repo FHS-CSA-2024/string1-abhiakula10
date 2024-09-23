@@ -39,7 +39,7 @@ public class String1
      *  helloName("X") → "Hello X!"
      */
     public String helloName(String name) {
-        return "Hello " + name + "!";
+        return "Hello" + name + "!";
     }
 
     /*
@@ -76,7 +76,9 @@ public class String1
      * makeOutWord("[[]]", "word") → "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        return out.substring(0,2) + word + out.substring(2);
+        String out1 = out.substring(0,2);
+        String out2 = out.substring(2);
+        return out1 + word + out2;
     }
 
     /*
@@ -87,8 +89,8 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        String lastTwo = str.substring(str.length() - 2);
-        return lastTwo + lastTwo + lastTwo;
+        String endTwo = str.substring(str.length() - 2);
+        return endTwo + endTwo + endTwo;
     }
 
     /*
@@ -101,7 +103,7 @@ public class String1
      * firstTwo("ab") → "ab"
      */
     public String firstTwo(String str) {
-        if (str.length() <= 2) {
+        if (str.length() < 2) {
             return str;
         }    
         else { 
@@ -116,8 +118,8 @@ public class String1
      * firstHalf("abcdef") → "abc"
      */
     public String firstHalf(String str) {
-        int halfLength = str.length() / 2;
-        return str.substring(0, halfLength);
+        int midLength = str.length() / 2;
+        return str.substring(0,midLength);
     
     }
 
@@ -129,7 +131,7 @@ public class String1
      * withoutEnd("coding") → "odin"
      */
     public String withoutEnd(String str) {
-        return str.substring(1, str.length() - 1);
+        return str.substring(1, str.length() -1);
     }
 
     /*
@@ -141,7 +143,9 @@ public class String1
      * comboString("aaa", "b") → "baaab"
      */
     public String comboString(String a, String b) {
-        if (b.length() > a.length()) {
+        int lengA = a.length();
+        int lengB = b.length();
+        if (lengA() > lengB()) {
             return a + b + a;
         }
         else {
@@ -157,7 +161,7 @@ public class String1
      * middleThree("solving") → "lvi"
      */
     public String middleThree(String str) {
-        return str.substring(str.length()/ 2 - 1, str.length() / 2 + 2);
+        return str.substring(str.length()/ 2 - 1, str.length()/ 2 + 2);
     }
 
     /*
@@ -168,12 +172,12 @@ public class String1
      * extraFront("H") → "HHH"
      */
     public String extraFront(String str) {
-        if (str.length() < 2 ) {
+        if (str.length() <2 ) {
             return str + str + str;
             
         }
         else {
-        return str.substring(0,2) + str.substring(0,2) + str.substring(0,2); 
+            return str.substring(0,2) + str.substring(0,2) + str.substring(0,2); 
         }
     }
 
@@ -185,7 +189,7 @@ public class String1
      * left2("Hi") → "Hi"
      */
     public String left2(String str) {
-        return str.substring(2) + str.substring(0,2);
+        return str.substring(2)+str.substring(0,2);
     }
 
     /*
@@ -198,17 +202,14 @@ public class String1
      */
     public boolean hasBad(String str) {
         if (str.length() < 3) {
-            return false;
+             return false;
         }
-        
         else if (str.substring(0,3).equals("bad")) {
-            return true;
+             return true;
         }
-        
-        else if (str.length() >= 4 && str.substring(1,4).equals("bad")) {
-            return true;
+        else if (str.length() >= 4 && str.substring( 1 , 4).equals(" bad ")) {
+             return true;
         }
-        
         return false;
         
     }
@@ -222,8 +223,8 @@ public class String1
      * conCat("abc", "") → "abc"
      */
     public String conCat(String a, String b) {
-        if (a.substring(a.length()-1).equals(b.substring(0,1))){
-            return a.substring(0,a.length()-1) + b;
+        if (a.substring(a.length() - 1).equals(b.substring( 0 , 1))){
+            return a.substring(0,a.length() - 1) + b;
             
         }
         else {
@@ -242,19 +243,19 @@ public class String1
      *minCat("java", "Hello") → "javaello"
      */
     public String minCat(String a, String b) {
-        int minLength;
-        int maxLength;
+        int leaLength;
+        int mosLength;
         
     if (a.length() < b.length()) {
-            minLength = a.length();
+            leaLength = a.length();
         }  else {
-            minLength = b.length();
+            mosLength = b.length();
         }
         
-    String aMin = a.substring(a.length() - minLength);
-    String bMin = b.substring(b.length() - minLength);
+    String aLea = a.substring(a.length() - leaLength);
+    String bMos = b.substring(b.length() - mosLength);
     
-    return aMin + bMin;
+    return aLea + bMos;
     }
 
     /*
@@ -264,39 +265,36 @@ public class String1
      * withoutX("xHi") → "Hi"
      * withoutX("Hxix") → "Hxi"
      */
-    public String withoutX(String str) {
+    public String woutX(String str) {
     if (str.length() == 0) {
         return str;  
     }
-    if (str.length() == 1 && str.equals("x")) {
+    if (str.length() == 1 && str.equals(" x ")) {
         return "";
     }
-    if (str.substring(0,1).equals("x")) {
+    if (str.substring( 0 , 1 ).equals("x")) {
         str = str.substring(1);
     }
-    if (str.substring(str.length()-1).equals("x")) {
+    if (str.substring(str.length()-1).equals(" x ")) {
         str = str.substring(0, str.length() - 1);
     }
     return str;
 }
-
+    public String deFront(String str) {    
+        if (str.substring( 0 , 1 ).equals(" a ")){
+            if (str.substring( 1 , 2 ).equals(" b ")){
+                return str;
+        }
+         return str.substring(0,1) + str.substring( 2 );
+        }
+        else if (str.substring( 1 , 2 ).equals(" b ")){
+            return str.substring( 1 );
+        }
+        else{
+            return str.substring(2);
     } 
 
-//outputs
+}        
 
-Hello Bob!
-HiByeByeHi
-<i>Yay</i>
-<<Yay>>
-lololo
-He
-Hello
-ell
-hiHellohi
-and
-HeHeHe
-lloHe
-true
-abcat
-loHi
-Hi
+
+
