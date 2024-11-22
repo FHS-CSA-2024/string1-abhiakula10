@@ -76,9 +76,7 @@ public class String1
      * makeOutWord("[[]]", "word") → "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        String out1 = out.substring(0,2);
-        String out2 = out.substring(2);
-        return out1 + word + out2;
+        return out.substring(0,2) + word + out.substring(2,4);
     }
 
     /*
@@ -119,17 +117,15 @@ public class String1
      */
     public String firstHalf(String str) {
         int midLength = str.length() / 2;
-        return str.substring(0,midLength);
+        return str.substring(0, midLength);
     
     }
-
-    /*
-     * Given a string, return a version without the first and last char, so "Hello" yields "ell". 
-     * The string length will be at least 2.
-     * withoutEnd("Hello") → "ell"
-     * withoutEnd("java") → "av"
-     * withoutEnd("coding") → "odin"
-     */
+   /*
+     * Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".]
+     * firstHalf("WooHoo") â†’ "Woo"
+     * firstHalf("HelloThere") â†’ "Hello"
+     * firstHalf("abcdef") â†’ "abc"
+     */ 
     public String withoutEnd(String str) {
         return str.substring(1, str.length() -1);
     }
@@ -161,7 +157,8 @@ public class String1
      * middleThree("solving") → "lvi"
      */
     public String middleThree(String str) {
-        return str.substring(str.length()/ 2 - 1, str.length()/ 2 + 2);
+        int midLength = str.length() /2;
+        return str.substring(midLength - 1, midLength + 2);
     }
 
     /*
@@ -172,7 +169,7 @@ public class String1
      * extraFront("H") → "HHH"
      */
     public String extraFront(String str) {
-        if (str.length() <2 ) {
+        if (str.length() <= 2 ) {
             return str + str + str;
             
         }
@@ -204,13 +201,12 @@ public class String1
         if (str.length() < 3) {
              return false;
         }
-        else if (str.substring(0,3).equals("bad")) {
+        else if (str.substring(0,3).equals("bad") || str.substring(1,4).equals("bad")) {
              return true;
         }
-        else if (str.length() >= 4 && str.substring( 1 , 4).equals(" bad ")) {
-             return true;
+        else {
+            return false;
         }
-        return false;
         
     }
 
@@ -238,6 +234,7 @@ public class String1
      *    so it is the same length as the shorter string. 
      *So "Hello" and "Hi" yield "loHi". 
      *The strings may be any length.
+     
      *minCat("Hello", "Hi") → "loHi"
      *minCat("Hello", "java") → "ellojava"
      *minCat("java", "Hello") → "javaello"
